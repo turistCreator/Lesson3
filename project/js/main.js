@@ -17,8 +17,20 @@ let getRequest = (url) => {
     })
 };
 
+class Item { //класс для какого то определенного товара
+    constructor(id, image, price, name, description) {
+        this.id = id;
+        this.image = image;
+        this.price = price;
+        this.name = name;
+        this.description = description;
+    }
+}
+
+
 class ProductList {
-    constructor(container = '.products') {
+    constructor(container = '.products', url = "/catalogData.json") {
+        super(url, container)
         this.container = document.querySelector(container);
         this._goods = [];
         this._productsObjects = [];
